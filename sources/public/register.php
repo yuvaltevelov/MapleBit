@@ -1,9 +1,3 @@
- <script type="text/javascript">
- var RecaptchaOptions = {
-    theme : 'clean',
-    custom_theme_widget: 'recaptcha_widget'
- };
-</script>
 <?php 
 /*
     Copyright (C) 2009  Murad <Murawd>
@@ -29,12 +23,24 @@ else{
 echo "<legend>Registration</legend>";
 if (@$_POST["register"] != "1") {
 ?>
-	<form action="?cype=main&page=register" method="POST">
-		<input type="text" name="musername" maxlength="12" class="input" required autocomplete="off" placeholder="Username"><br/>
-		<input type="password" name="mpass" maxlength="30" class="input" required autocomplete="off" placeholder="Password"><br/>
-		<input type="password" name="mpwcheck" maxlength="30" class="input" required autocomplete="off" placeholder="Verify Password"><br/>
-		<input type="email" name="memail" maxlength="50" class="input" required autocomplete="off" placeholder="Email"><br/>
-	<span style="position:relative;top:10px;">
+	<form action="?cype=main&page=register" method="POST" role="form">
+	<div class="form-group">
+		<label for="inputUser">Username</label>
+		<input type="text" name="musername" maxlength="12" class="form-control" id="inputUser" required autocomplete="off" placeholder="Username">
+	</div>
+	<div class="form-group">
+		<label for="inputPass">Password</label>
+		<input type="password" name="mpass" maxlength="30" class="form-control" id="inputPass" required autocomplete="off" placeholder="Password">
+	</div>
+	<div class="form-group">
+		<label for="inputConfirm">Confirm Password</label>
+		<input type="password" name="mpwcheck" maxlength="30" class="form-control" id="inputConfirm" required autocomplete="off" placeholder="Confirm Password">
+	</div>
+	<div class="form-group">
+		<label for="inputEmail">Email</label>
+		<input type="email" name="memail" maxlength="50" class="form-control" id="inputEmail" required autocomplete="off" placeholder="Email">
+	</div>
+	<b>reCaptcha</b>
 	<?php
 		require_once('assets/config/recaptchalib.php');
 		$error = null;
@@ -42,8 +48,8 @@ if (@$_POST["register"] != "1") {
 		$privatekey = "6LemqAwAAAAAAO69RT3j9M1eHPX_ahhmC6Gakuwb";
 		echo recaptcha_get_html($publickey, $error);
 	?>
-	</span>
-		<input type="submit" class="btn btn-primary" name="submit" alt="Register" style="margin-top:20px;"/> 
+	<br/>
+		<input type="submit" class="btn btn-primary" name="submit" alt="Register" value="Register &raquo;"/> 
 		<input type="hidden" name="register" value="1" />
 	</form>
 <?php
