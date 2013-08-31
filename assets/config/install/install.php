@@ -160,6 +160,11 @@ CREATE TABLE `".$prefix."properties` (
   `gmlevel` int(11) NOT NULL DEFAULT '1',
   `theme` text NOT NULL,
   `nav` text NOT NULL,
+  `gnx` INT(11) UNSIGNED NOT NULL DEFAULT 10,
+  `gvp` INT(11) UNSIGNED NOT NULL DEFAULT 1,
+  `colnx` TEXT NOT NULL AFTER `gvp`,
+  `colvp` TEXT NOT NULL AFTER `colnx`,
+  `vtime` INT(11) UNSIGNED NOT NULL DEFAULT 21600,
   PRIMARY KEY (`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -398,7 +403,7 @@ echo "<META http-equiv=\"refresh\" content=\"0;URL=?install=4\">";
 					}
 				}			
 				if($stop == "false"){
-					$mysqli->query("UPDATE cype_properties SET name='$sservername', client='$sclient', version='$sversion', forumurl='$sforumurl', vote='$svote', exprate='$sexp', mesorate='$smeso', droprate='$sdrop', flood='1', floodint='20', theme='Flatly', nav='0', pcap='100'");
+					$mysqli->query("UPDATE cype_properties SET name='$sservername', client='$sclient', version='$sversion', forumurl='$sforumurl', vote='$svote', exprate='$sexp', mesorate='$smeso', droprate='$sdrop', flood='1', floodint='20', theme='cerulean', nav='0', pcap='100'");
 					echo "Working...";
 					echo "<meta http-equiv=\"refresh\" content=\"1; url=?install=done\" />";
 				}
