@@ -20,10 +20,8 @@ if(isset($_GET['install'])){
 }else{
 	$install = "";
 }
-if(file_exists('install.lock')){
-	echo "<h4>An error has occurred</h4>
-			<hr />
-			CypeCMS has already been installed.";
+if(file_exists('installdone.txt')){
+	echo "<div class=\"alert alert-info\">Oops! Looks like Cype has already been installed! If you'd like, you can delete everything in the install folder, except for installdone.txt</div>";
 }else{
 	switch($install){
 		case NULL:
